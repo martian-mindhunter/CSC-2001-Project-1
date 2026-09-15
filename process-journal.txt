@@ -1,0 +1,4 @@
+2026-09-14 09:50PM
+~~~~~~~~~~~~~~~~~~
+Created a Session.java file that contains a record for Session w/ the necessary parameters
+Created a private member var for SessionList (sessions) & initialized as null
