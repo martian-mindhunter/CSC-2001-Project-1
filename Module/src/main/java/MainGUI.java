@@ -108,10 +108,20 @@ public class MainGUI extends JFrame {
 
             // TO DO: construct a session object, insert it into
             // the list of sessions
-            Session newSession = new Session(id, title, mentor, date, location, maxParticipants);
+            Session newSession = new Session(id, title, mentor, date, location,maxParticipants);
             Main.addNewSession(sessions, newSession);
 
-            outputArea.setText("Session Added Successfully\n");
+            if(Main.searchByID(sessions, newSession.id()) != null){
+                outputArea.setText("That session ID already exists\n");
+            }
+            else{
+                sessions = Main.addNewSession(sessions, newSession);
+                outputArea.setText("Session Added Successfully\n");
+
+                // Clear the input fields
+                clearFields();
+            }
+
             // Clear the input fields
             clearFields();
         }
@@ -180,6 +190,7 @@ public class MainGUI extends JFrame {
         int id = Integer.parseInt(idField.getText());
         // increment participants field of session,
         // print success or failure message.
+
     }
 
     public static void main(String[] args) {

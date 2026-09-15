@@ -1,6 +1,10 @@
-2026-09-14 09:50PM
+2026-09-14 09:30-11PM
 ~~~~~~~~~~~~~~~~~~
 Created a Session.java file that contains a record for Session w/ the necessary parameters
 Created a private member var for SessionList (sessions) & initialized as null
 Created the addNewSession method to add a new session to the end of the Session List
 Implemented addNewSession into the addSession button function
+Talked through next step plans to finish addSession
+
+2026-09-15 01:00-03:00PM
+~~~~~~~~~~~~~~~~~~~
