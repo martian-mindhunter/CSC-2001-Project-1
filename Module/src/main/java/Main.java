@@ -32,6 +32,22 @@ public class Main {
         };
     }
 
+    static SessionList searchByMentor(SessionList sessions, String targetMentor){
+        return switch(sessions){
+            case null -> null;
+
+            case SessionList(Session session,SessionList r) -> {
+                SessionList matchingRest = searchByMentor(r,targetMentor);
+
+                if(session.mentor().equals(targetMentor)){
+                    yield new SessionList(session,matchingRest);
+                } else {
+                    yield matchingRest;
+                }
+            }
+        };
+    }
+
     static void main(String[] args) {
 
     }

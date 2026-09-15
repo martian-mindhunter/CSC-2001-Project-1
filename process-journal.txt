@@ -5,6 +5,11 @@ Created a private member var for SessionList (sessions) & initialized as null
 Created the addNewSession method to add a new session to the end of the Session List
 Implemented addNewSession into the addSession button function
 Talked through next step plans to finish addSession
+worked in MainGUI to finish the code for each outcome when typing in sessionID's
+
 
 2026-09-15 01:00-03:00PM
 ~~~~~~~~~~~~~~~~~~~
+Checked every outcome and ensured that addSessions was finished
+Began working on both display and search buttons
+created new static session in Main.java for search button

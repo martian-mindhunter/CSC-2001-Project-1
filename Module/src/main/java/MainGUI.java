@@ -109,7 +109,7 @@ public class MainGUI extends JFrame {
             // TO DO: construct a session object, insert it into
             // the list of sessions
             Session newSession = new Session(id, title, mentor, date, location,maxParticipants);
-            Main.addNewSession(sessions, newSession);
+
 
             if(Main.searchByID(sessions, newSession.id()) != null){
                 outputArea.setText("That session ID already exists\n");
@@ -121,7 +121,6 @@ public class MainGUI extends JFrame {
                 // Clear the input fields
                 clearFields();
             }
-
             // Clear the input fields
             clearFields();
         }
@@ -144,38 +143,50 @@ public class MainGUI extends JFrame {
         outputArea.append("\n--------------------\n");
     }
 
-    // search by ID if presesnt, mentor otherwise, display results
+    // search by ID if present, mentor otherwise, display results
     private void searchSession() {
         // Search by ID if the ID field is not empty
+        outputArea.setText("");
         if (!idField.getText().trim().isEmpty()) {
-            int id = Integer.parseInt(idField.getText().trim());
-            // find session by ID, using a `searchByID` method
-            // ... code here ...
-            /* if (result != null)
-                // display session to the output area...
-            else
-                outputArea.setText("Session not found.");
-             */
+            try {
+                int id = Integer.parseInt(idField.getText().trim());
+                Session result = Main.searchByID(sessions, id);
+                if (result != null) {
+                    outputArea.setText(result.toString());
+                } else {
+                    outputArea.setText("Session is not found");
+                }
+            } catch (NumberFormatException e) {
+                outputArea.setText("Session ID needs to be an integer");
+            }
         }
         // Otherwise, search by mentor if the Mentor field is not empty
         else if (!mentorField.getText().trim().isEmpty()) {
             String mentor = mentorField.getText().trim();
-            // find session by mentor. In this case, the result
-            // may be a list of sessions...
-            // ... code here ...
-            /*
-            if (result != null)
-                // display all sessions in the list
-            else
+
+            SessionList results = Main.searchByMentor(sessions, mentor);
+            if (results != null) {
+                displaySessionList(results);
+            } else {
                 outputArea.setText("No session found for mentor: " + mentor);
-             */
-        }
-        // Nothing entered
-        else {
+            }
+        } else {
             outputArea.setText("Please enter a Session ID or Mentor name.");
         }
     }
 
+    private void displaySessionList(SessionList sessions) {
+        //prints out the sessions
+        switch (sessions) {
+            case null -> {
+                //end of the list.
+            }
+            case SessionList(Session session, SessionList rest) -> {outputArea.append(session.toString());outputArea.append("\n--------------------\n");
+
+                displaySessionList(rest);
+            }
+        }
+    }
     // given an id, remove that session from the list
     private void removeSession() {
         int id = Integer.parseInt(idField.getText());
