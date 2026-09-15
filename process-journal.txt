@@ -8,3 +8,4 @@ Talked through next step plans to finish addSession
 
 2026-09-15 01:00-03:00PM
 ~~~~~~~~~~~~~~~~~~~
+Created the Display function with MainGUI & implemented functional Display LinkedList method
