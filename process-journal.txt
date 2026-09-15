@@ -2,3 +2,5 @@
 ~~~~~~~~~~~~~~~~~~
 Created a Session.java file that contains a record for Session w/ the necessary parameters
 Created a private member var for SessionList (sessions) & initialized as null
+Created the addNewSession method to add a new session to the end of the Session List
+Implemented addNewSession into the addSession button function
