@@ -136,7 +136,7 @@ public class MainGUI extends JFrame {
         // iterate over sessions; display each one
         // to the output window, using the `append`
         // method of the outputArea.
-
+        Main.displayAllSessions(sessions, outputArea);
         // between each one, print a separator line,
         // as e.g.
 
