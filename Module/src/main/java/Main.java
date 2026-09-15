@@ -1,13 +1,14 @@
 public class Main {
 
+    static SessionList addNewSession(SessionList sessions, Session sToAdd){
 
-//        switch(sessions){
-//            case null -> new SessionList(newSession, null);
-//            case SessionList(Session session, SessionList r) ->
-//                    new SessionList(session, addSession());
-//        }
+        return switch(sessions){
+            case null -> new SessionList(sToAdd, null);
+            case SessionList(Session session, SessionList r) ->
+                    new SessionList(session, addNewSession(r, sToAdd));
+        };
 
-//            switch()
+    }
 
 
     static void main(String[] args) {
