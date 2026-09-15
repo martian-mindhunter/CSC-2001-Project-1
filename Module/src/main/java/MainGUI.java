@@ -109,7 +109,7 @@ public class MainGUI extends JFrame {
             // TO DO: construct a session object, insert it into
             // the list of sessions
             Session newSession = new Session(id, title, mentor, date, location, maxParticipants);
-
+            Main.addNewSession(sessions, newSession);
 
             outputArea.setText("Session Added Successfully\n");
             // Clear the input fields
