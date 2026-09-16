@@ -48,6 +48,24 @@ public class Main {
         };
     }
 
+    static SessionList displayAllSessions(SessionList sessions, javax.swing.JTextArea outputarea){
+        return switch (sessions){
+            case null -> null;
+            case SessionList(Session session, SessionList r) -> {
+                outputarea.append(
+                        "Session ID: " + session.id()
+                                + " | Title: " + session.title()
+                                + " | Mentor: " + session.mentor()
+                                + " | Date: " + session.date()
+                                + " | Location: " + session.location()
+                                + " | Participants: " + session.maxParts()
+                                + "\n"
+                );
+                yield new SessionList(session, displayAllSessions(r, outputarea));
+            }
+        };
+    }
+
     static void main(String[] args) {
 
     }
