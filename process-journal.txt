@@ -7,7 +7,6 @@ Implemented addNewSession into the addSession button function
 Talked through next step plans to finish addSession
 worked in MainGUI to finish the code for each outcome when typing in sessionID's
 
-
 2026-09-15 01:00-03:00PM
 ~~~~~~~~~~~~~~~~~~~
 Checked every outcome and ensured that addSessions was finished
@@ -15,3 +14,15 @@ Began working on both display and search buttons
 created new static session in Main.java for search button
 Created the Display function with MainGUI & implemented functional Display LinkedList method
 Created searchByMentor & searchByID functions in MainGUI
+
+2026-09-16 9:10-9:25PM
+~~~~~~~~~~~~~~~~~~~
+Resolved merge issue that deleted displaySession code
+Ran manual test cases to debug & check error messages
+
+2026-09-16 9:30-11:00PM
+~~~~~~~~~~~~~~~~~~~
+Created the removeSingleSession function that returns a Session List w/o a specified Session based on ID
+Created the addNewParticipant function that returns a Session List w/ a Session that has an increased Participant count
+Updated the removeSession & addParticipant functions in MainGUI to properly mutate the value of sessions
+Tweaked the searchSession method to utilize a function in Main to display a session based on ID

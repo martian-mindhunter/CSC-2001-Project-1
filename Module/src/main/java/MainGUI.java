@@ -151,11 +151,7 @@ public class MainGUI extends JFrame {
             try {
                 int id = Integer.parseInt(idField.getText().trim());
                 Session result = Main.searchByID(sessions, id);
-                if (result != null) {
-                    outputArea.setText(result.toString());
-                } else {
-                    outputArea.setText("Session is not found");
-                }
+                Main.displaySingleSession(result, outputArea);
             } catch (NumberFormatException e) {
                 outputArea.setText("Session ID needs to be an integer");
             }
@@ -166,7 +162,7 @@ public class MainGUI extends JFrame {
 
             SessionList results = Main.searchByMentor(sessions, mentor);
             if (results != null) {
-                displaySessionList(results);
+                Main.displayAllSessions(results, outputArea);
             } else {
                 outputArea.setText("No session found for mentor: " + mentor);
             }
@@ -175,24 +171,25 @@ public class MainGUI extends JFrame {
         }
     }
 
-    private void displaySessionList(SessionList sessions) {
-        //prints out the sessions
-        switch (sessions) {
-            case null -> {
-                //end of the list.
-            }
-            case SessionList(Session session, SessionList rest) -> {outputArea.append(session.toString());outputArea.append("\n--------------------\n");
-
-                displaySessionList(rest);
-            }
-        }
-    }
+//    private void displaySessionList(SessionList sessions) {
+//        //prints out the sessions
+//        switch (sessions) {
+//            case null -> {
+//                //end of the list.
+//            }
+//            case SessionList(Session session, SessionList rest) -> {outputArea.append(session.toString());outputArea.append("\n--------------------\n");
+//
+//                displaySessionList(rest);
+//            }
+//        }
+//    }
     // given an id, remove that session from the list
     private void removeSession() {
         int id = Integer.parseInt(idField.getText());
         // remove the session, print an error to the outputArea
         // if it's not found
         // ... code here ...
+        sessions = Main.removeSingleSession(sessions, id, outputArea);
     }
 
     // add one to the count of the specified session.
@@ -201,6 +198,11 @@ public class MainGUI extends JFrame {
         int id = Integer.parseInt(idField.getText());
         // increment participants field of session,
         // print success or failure message.
+        if(idField.getText() == null){
+            outputArea.setText("Please input ID of Session to Register Participant");
+        } else {
+            sessions = Main.addNewParticipant(sessions, id, outputArea);
+        }
 
     }
 
