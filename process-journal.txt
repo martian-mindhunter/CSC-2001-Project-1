@@ -26,3 +26,8 @@ Created the removeSingleSession function that returns a Session List w/o a speci
 Created the addNewParticipant function that returns a Session List w/ a Session that has an increased Participant count
 Updated the removeSession & addParticipant functions in MainGUI to properly mutate the value of sessions
 Tweaked the searchSession method to utilize a function in Main to display a session based on ID
+
+2026-09-18 3:00PM-4:45PM
+~~~~~~~~~~~~~~~~~~~~
+Created MainTest.java
+Created test cases for each function of Main.java
