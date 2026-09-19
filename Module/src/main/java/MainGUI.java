@@ -108,10 +108,11 @@ public class MainGUI extends JFrame {
 
             // TO DO: construct a session object, insert it into
             // the list of sessions
-            Session newSession = new Session(id, title, mentor, date, location,maxParticipants);
+            Session newSession = new Session(id, title, mentor, date, location, maxParticipants);
 
-
-            if(Main.searchByID(sessions, newSession.id()) != null){
+            if(title.isBlank() || mentor.isBlank() || date.isBlank() || location.isBlank()){
+                outputArea.setText("Invalid input");
+            } else if(Main.searchByID(sessions, newSession.id()) != null){
                 outputArea.setText("That session ID already exists\n");
             }
             else{
